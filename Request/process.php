@@ -1,21 +1,21 @@
 <?php
-namespace app\Request;
+namespace Request;
 
-use app\Request\Router;
+use Request\Router;
 
 class process
 {
     public $router;
     private $routeFile;
 
-    function __construct()
+    public function __construct()
     {
-        $this->routeFile = $_SERVER['DOCUMENT_ROOT'].'/app/Route/route.php';
+        $this->routeFile = $_SERVER['DOCUMENT_ROOT'].'/Route/route.php';
     }
 
     public function route()
     {
-        $this->router = new Router(new \app\Request\Request());
+        $this->router = new Router(new \Request\Request());
 
         if (count(file($this->routeFile)) >= 4) {
             require_once $this->routeFile;

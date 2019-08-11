@@ -1,5 +1,5 @@
 <?php
-namespace app\Request;
+namespace Request;
 
 interface IRequest
 {

@@ -1,7 +1,7 @@
 <?php
 namespace app\Controller;
 
-use app\Response\Output;
+use Response\Output;
 
 class Controller
 {

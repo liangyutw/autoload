@@ -1,7 +1,7 @@
 <?php
-namespace app\Request;
+namespace Request;
 
-use app\Request\IRequest;
+use Request\IRequest;
 
 class Request implements IRequest
 {

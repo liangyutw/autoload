@@ -1,5 +1,5 @@
 <?php
-namespace app\Response;
+namespace Response;
 
 class Output
 {

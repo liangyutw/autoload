@@ -1,5 +1,5 @@
 <?php
-namespace app\Database;
+namespace Database;
 
 use app\Constants\DbConstant;
 
