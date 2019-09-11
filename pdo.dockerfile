@@ -2,7 +2,7 @@ FROM php:7.2-apache
 
 RUN apt-get update
 RUN apt-get install zip git -y
-RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-install pdo pdo_mysql bcmath curl gd hash json ldap mbstring session soap zip iconv exif
 RUN curl -s https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 

@@ -1,11 +1,9 @@
 <?php
-
+/** method GET */
 $this->router->get('/', function () {
-    return 'Hello world';
+    header('location:index2.php');
 });
+$this->router->get('/report/notice', 'NoticeController@schedule');
 
-$this->router->get('/test', 'TestController@index');
-
-// $this->router->post('/data', function ($request) {
-//     return json_encode($request->getBody());
-// });
+/** method POST */
+$this->router->post('/login', 'User\UserController@login');

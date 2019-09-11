@@ -8,9 +8,8 @@ class Output
         return json_encode($data);
     }
 
-    public static function toArray(array $data)
+    public static function toArray($data)
     {
-        $pre = '<pre>'.print_r($data, true);
-        return $pre;
+        return $data;
     }
 }

@@ -1,5 +1,6 @@
 <?php
 namespace app\Constants;
+require '/var/www/html/PHPFunction/PHP_function.php';
 
 class DbConstant
 {
@@ -7,11 +8,11 @@ class DbConstant
     public function __construct()
     {
         $this->info = [
-            "host"      => 'mysql8',
-            "port"      => '3306',
-            "dbname"    => 'test',
-            "user"      => 'root',
-            "password"  => 'password',
+            "host"      => env('DB_HOST'),
+            "port"      => env('DB_PORT'),
+            "dbname"    => env('DB_NAME'),
+            "user"      => env('DB_USER'),
+            "password"  => env('DB_PASSWORD'),
         ];
     }
 }

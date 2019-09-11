@@ -41,17 +41,14 @@ class Router
     private function getFunctionContent($closure)
     {
         $className = $functionName = [];
-        preg_match("/^[a-zA-Z]*/", $closure, $className);
-        preg_match("/\@+[a-zA-Z]*/", $closure, $functionName);
-
-        $className      = array_shift($className);
-        $functionName   = ltrim(array_shift($functionName), '@');
-        $clasPath       = $this->getClassPath($className);
-
-
-        $class = new $clasPath($clasPath);
-        // echo '<pre>';
-        // print_r($class);
+        if (strpos($closure, '@') > 0 && strpos($closure, '@') != false) {
+            list($className, $functionName) = explode('@', $closure);
+        }
+        $d1 = "\\";
+        $d2 = "\\";
+        $className  = str_replace($d1, $d2, $className);
+        $classPath  = $this->getClassPath($className);
+        $class      = new $classPath();
 
         return function () use ($class, $functionName) {
             return $class->{$functionName}();
@@ -100,8 +97,8 @@ class Router
     {
         try {
             $methodDictionary = $this->{strtolower($this->request->requestMethod)};
-            // echo '<pre>';print_r($methodDictionary);
             $formatedRoute = $this->formatRoute($this->request->requestUri);
+            $formatedRoute = str_replace('/index.php','/', $formatedRoute);
             $closureObj = $methodDictionary[$formatedRoute];
 
             if (is_null($closureObj)) {

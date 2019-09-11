@@ -15,7 +15,7 @@ class TestController extends Controller
 
     public function index()
     {
-        $result = $this->testService->getTaskData();
+        $result = $this->request->getBody();
 
         return $this->output->toArray($result);
     }
